@@ -18,9 +18,9 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "account")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @EqualsAndHashCode
 public class Account implements Serializable {
 

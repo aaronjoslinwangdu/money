@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aaronjoslinwangdu.money.account.domain.Account;
+import com.aaronjoslinwangdu.money.account.dto.AccountDTO;
 import com.aaronjoslinwangdu.money.account.repository.AccountJpaRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,15 @@ public class AccountService {
 		return accountJpaRepository.findById(accountDbky);
 	}
 	
-	public Account saveAccount(Account account) {
+	public Account saveAccount(AccountDTO request) {
+		
+		Account account;
+		account = Account.builder()
+				.firstName(request.getFirstName())
+				.lastName(request.getLastName())
+				.location(request.getLocation())
+				.build();
+	
 		return accountJpaRepository.save(account);
 	}
 	
