@@ -1,5 +1,6 @@
 package com.aaronjoslinwangdu.money.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.annotations.Parameter;
@@ -9,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,14 +32,24 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 	
+	@GetMapping(path = "/")
+	public @ResponseBody List<Account> getAllAccounts() {
+		return accountService.getAllAccounts();
+	}
+	
 	@GetMapping(path = "/{accountId}")
-	public @ResponseBody Optional<Account> getAccountByIdAccount (@PathVariable Long accountId) {
+	public @ResponseBody Optional<Account> getAccountByIdAccount(@PathVariable Long accountId) {
 		return accountService.findAccountByDbky(accountId);
 	}
 	
 	@PostMapping(path = "/add")
-	public void saveAccount(@RequestBody AccountDTO accountDto) {
-		accountService.saveAccount(accountDto);
+	public void addAccount(@RequestBody AccountDTO accountDto) {
+		accountService.addAccount(accountDto);
+	}
+	
+	@PutMapping(path = "/{accountId}")
+	public void updateAccount(@PathVariable Long accountId, @RequestBody AccountDTO accountDto) {
+		accountService.updateAccount(accountId, accountDto);
 	}
 	
 }
