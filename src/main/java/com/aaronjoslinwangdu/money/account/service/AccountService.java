@@ -19,11 +19,10 @@ public class AccountService {
 
 	/** The constant Account JPA Repository */
 	@Autowired
-	private AccountJpaRepository accountJpaRepository;
+	private final AccountJpaRepository accountJpaRepository;
 	
 	/** The constant Account mapper */
-	@Autowired
-	private AccountMapper accountMapper;
+	private final AccountMapper accountMapper;
 	
 	/**
 	 * Get all Accounts
