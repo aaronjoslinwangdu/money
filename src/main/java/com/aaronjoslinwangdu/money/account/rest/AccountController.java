@@ -1,4 +1,4 @@
-package com.aaronjoslinwangdu.money.rest;
+package com.aaronjoslinwangdu.money.account.rest;
 
 import java.util.List;
 import java.util.Optional;
