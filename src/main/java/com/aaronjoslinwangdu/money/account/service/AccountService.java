@@ -55,11 +55,13 @@ public class AccountService {
 		
 		Account account;
 		account = Account.builder()
+				.email(request.getEmail())
 				.firstName(request.getFirstName())
 				.lastName(request.getLastName())
 				.location(request.getLocation())
 				.build();
-	
+		account.setPrincipal(request.getCreatedBy());
+		
 		return accountJpaRepository.save(account);
 	}
 	
