@@ -56,6 +56,7 @@ public class AccountService {
 		Account account;
 		account = Account.builder()
 				.email(request.getEmail())
+				.username(request.getUsername())
 				.firstName(request.getFirstName())
 				.lastName(request.getLastName())
 				.location(request.getLocation())

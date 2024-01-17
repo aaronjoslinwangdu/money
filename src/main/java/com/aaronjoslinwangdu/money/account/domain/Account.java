@@ -37,6 +37,9 @@ public class Account extends AbstractDomainAttributes implements Serializable {
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "username")
+	private String username;
+	
 	@Column(name = "first_name")
 	private String firstName;
 	
