@@ -28,7 +28,7 @@ public interface AccountMapper {
 	
 	
 	/**
-	 * Updates fields from DTO to Entity
+	 * Updates fields from Account DTO to Entity
 	 * 
 	 * @param request
 	 * @param account
