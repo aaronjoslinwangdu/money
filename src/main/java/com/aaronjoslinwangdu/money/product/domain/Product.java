@@ -1,6 +1,7 @@
 package com.aaronjoslinwangdu.money.product.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import com.aaronjoslinwangdu.money.common.domain.AbstractDomainAttributes;
 
@@ -35,7 +36,7 @@ public class Product extends AbstractDomainAttributes implements Serializable {
 	private Long dbky;
 	
 	@Column(name = "product_type_dbky")
-	private String productType;
+	private Long productType;
 	
 	@Column(name = "name")
 	private String name;
@@ -44,6 +45,6 @@ public class Product extends AbstractDomainAttributes implements Serializable {
 	private String description;
 	
 	@Column(name = "price")
-	private String price;
+	private BigDecimal price;
 	
 }
