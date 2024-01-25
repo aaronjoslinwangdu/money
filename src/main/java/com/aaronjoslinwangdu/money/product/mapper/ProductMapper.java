@@ -20,7 +20,7 @@ public interface ProductMapper {
 	/**
 	 * Convert Product Domain Object to DTO
 	 * 
-	 * @param account
+	 * @param product
 	 * @return
 	 */
 	@Mappings({

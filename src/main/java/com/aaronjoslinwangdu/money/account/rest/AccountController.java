@@ -38,7 +38,7 @@ public class AccountController {
 	 * @return
 	 */
 	@GetMapping(path = "/")
-	public @ResponseBody List<Account> getAllAccounts() {
+	public @ResponseBody List<AccountDTO> getAllAccounts() {
 		return accountService.getAllAccounts();
 	}
 	

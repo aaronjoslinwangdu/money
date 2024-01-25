@@ -2,6 +2,7 @@ package com.aaronjoslinwangdu.money.account.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,9 @@ public class AccountService {
 	 * 
 	 * @return List<Account>
 	 */
-	public List<Account> getAllAccounts() {
-		return accountJpaRepository.findAll();
+	public List<AccountDTO> getAllAccounts() {
+		List<Account> accounts = accountJpaRepository.findAll();
+		return accounts.stream().map(account -> accountMapper.convertSalesOrderDomainToDto(account)).collect(Collectors.toList());
 	}
 	
 	

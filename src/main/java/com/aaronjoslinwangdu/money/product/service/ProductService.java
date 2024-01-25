@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aaronjoslinwangdu.money.mapper.ProductMapper;
+import com.aaronjoslinwangdu.money.product.mapper.ProductMapper;
 import com.aaronjoslinwangdu.money.product.domain.Product;
 import com.aaronjoslinwangdu.money.product.dto.ProductDTO;
 import com.aaronjoslinwangdu.money.repository.ProductJpaRepository;
