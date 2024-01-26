@@ -24,7 +24,7 @@ public interface AccountMapper {
 	@Mappings({
 		@Mapping(source = "dbky", target = "id")
 	})
-	AccountDTO convertSalesOrderDomainToDto(Account account);
+	AccountDTO convertAccountDomainToDto(Account account);
 	
 	
 	/**

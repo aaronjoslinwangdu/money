@@ -32,7 +32,7 @@ public class AccountService {
 	 */
 	public List<AccountDTO> getAllAccounts() {
 		List<Account> accounts = accountJpaRepository.findAll();
-		return accounts.stream().map(account -> accountMapper.convertSalesOrderDomainToDto(account)).collect(Collectors.toList());
+		return accounts.stream().map(account -> accountMapper.convertAccountDomainToDto(account)).collect(Collectors.toList());
 	}
 	
 	
@@ -42,8 +42,9 @@ public class AccountService {
 	 * @param accountDbky
 	 * @return
 	 */
-	public Optional<Account> findAccountByDbky(Long accountDbky) {
-		return accountJpaRepository.findById(accountDbky);
+	public AccountDTO findAccountByDbky(Long accountDbky) {
+		Account account = accountJpaRepository.findById(accountDbky).orElse(null);
+		return accountMapper.convertAccountDomainToDto(account);
 	}
 	
 	

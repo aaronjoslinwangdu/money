@@ -50,7 +50,7 @@ public class AccountController {
 	 * @return
 	 */
 	@GetMapping(path = "/{accountId}")
-	public @ResponseBody Optional<Account> getAccountById(@PathVariable Long accountId) {
+	public @ResponseBody AccountDTO getAccountById(@PathVariable Long accountId) {
 		return accountService.findAccountByDbky(accountId);
 	}
 	
