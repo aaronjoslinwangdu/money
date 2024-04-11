@@ -1,4 +1,4 @@
-package com.aaronjoslinwangdu.money.repository;
+package com.aaronjoslinwangdu.money.product.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

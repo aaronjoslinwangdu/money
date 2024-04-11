@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.aaronjoslinwangdu.money.product.mapper.ProductMapper;
 import com.aaronjoslinwangdu.money.product.domain.Product;
 import com.aaronjoslinwangdu.money.product.dto.ProductDTO;
-import com.aaronjoslinwangdu.money.repository.ProductJpaRepository;
+import com.aaronjoslinwangdu.money.product.repository.ProductJpaRepository;
 
 import lombok.RequiredArgsConstructor;
 

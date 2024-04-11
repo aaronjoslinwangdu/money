@@ -1,5 +1,6 @@
 package com.aaronjoslinwangdu.money.account.domain;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.aaronjoslinwangdu.money.common.domain.AbstractDomainAttributes;
@@ -23,9 +24,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class Account extends AbstractDomainAttributes implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@Id

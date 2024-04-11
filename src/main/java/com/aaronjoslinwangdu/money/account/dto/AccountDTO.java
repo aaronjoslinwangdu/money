@@ -4,15 +4,13 @@ import java.io.Serializable;
 
 import com.aaronjoslinwangdu.money.common.dto.AbstractDTOAttributes;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class AccountDTO extends AbstractDTOAttributes implements Serializable {
 
 	private static final long serialVersionUID = 1L;
