@@ -1,6 +1,9 @@
 package com.aaronjoslinwangdu.money.account.domain;
 
+import java.io.Serial;
 import java.io.Serializable;
+
+import com.aaronjoslinwangdu.money.common.domain.AbstractDomainAttributes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,9 +24,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@EqualsAndHashCode
-public class Account implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class Account extends AbstractDomainAttributes implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -31,6 +35,12 @@ public class Account implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_dbky_seq")
 	@SequenceGenerator(sequenceName = "account_dbky_seq", allocationSize = 1, name = "account_dbky_seq")
 	private Long dbky;
+	
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "username")
+	private String username;
 	
 	@Column(name = "first_name")
 	private String firstName;

@@ -2,6 +2,7 @@ package com.aaronjoslinwangdu.money.account.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,9 @@ public class AccountService {
 	 * 
 	 * @return List<Account>
 	 */
-	public List<Account> getAllAccounts() {
-		return accountJpaRepository.findAll();
+	public List<AccountDTO> getAllAccounts() {
+		List<Account> accounts = accountJpaRepository.findAll();
+		return accounts.stream().map(account -> accountMapper.convertAccountDomainToDto(account)).collect(Collectors.toList());
 	}
 	
 	
@@ -40,8 +42,9 @@ public class AccountService {
 	 * @param accountDbky
 	 * @return
 	 */
-	public Optional<Account> findAccountByDbky(Long accountDbky) {
-		return accountJpaRepository.findById(accountDbky);
+	public AccountDTO findAccountByDbky(Long accountDbky) {
+		Account account = accountJpaRepository.findById(accountDbky).orElse(null);
+		return accountMapper.convertAccountDomainToDto(account);
 	}
 	
 	
@@ -55,11 +58,14 @@ public class AccountService {
 		
 		Account account;
 		account = Account.builder()
+				.email(request.getEmail())
+				.username(request.getUsername())
 				.firstName(request.getFirstName())
 				.lastName(request.getLastName())
 				.location(request.getLocation())
 				.build();
-	
+		account.setPrincipal(request.getCreatedBy());
+		
 		return accountJpaRepository.save(account);
 	}
 	

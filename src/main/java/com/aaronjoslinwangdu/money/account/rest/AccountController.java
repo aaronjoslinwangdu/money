@@ -1,4 +1,4 @@
-package com.aaronjoslinwangdu.money.rest;
+package com.aaronjoslinwangdu.money.account.rest;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +38,7 @@ public class AccountController {
 	 * @return
 	 */
 	@GetMapping(path = "/")
-	public @ResponseBody List<Account> getAllAccounts() {
+	public @ResponseBody List<AccountDTO> getAllAccounts() {
 		return accountService.getAllAccounts();
 	}
 	
@@ -50,7 +50,7 @@ public class AccountController {
 	 * @return
 	 */
 	@GetMapping(path = "/{accountId}")
-	public @ResponseBody Optional<Account> getAccountById(@PathVariable Long accountId) {
+	public @ResponseBody AccountDTO getAccountById(@PathVariable Long accountId) {
 		return accountService.findAccountByDbky(accountId);
 	}
 	
